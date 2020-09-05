@@ -164,8 +164,9 @@ namespace PAX_Eetdagen
 
         private void btnNieuw_Click(object sender, EventArgs e)
         {
-            datagrdFactuur.Rows.Clear();
-            foreach(DataGridViewRow row in datagrdEten.Rows)
+            datagrdFactuur.DataSource = null;
+            //datagrdFactuur.DataBind();
+            foreach (DataGridViewRow row in datagrdEten.Rows)
             {
                 row.Cells[1].Value = 0;
             }
