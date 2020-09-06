@@ -28,9 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Factuur));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.factuurMakenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aanpassingenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.artikelsAanpassenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.applicatieInstellingenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblTitel = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.datagrdEten = new System.Windows.Forms.DataGridView();
@@ -59,6 +62,7 @@
             this.ArtikelAndere = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AantalAndere = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureLogo = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagrdEten)).BeginInit();
@@ -69,6 +73,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.datagrdDrank)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagrdAndere)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -90,15 +95,32 @@
             // 
             // aanpassingenToolStripMenuItem
             // 
+            this.aanpassingenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.artikelsAanpassenToolStripMenuItem,
+            this.applicatieInstellingenToolStripMenuItem});
             this.aanpassingenToolStripMenuItem.Name = "aanpassingenToolStripMenuItem";
             this.aanpassingenToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
             this.aanpassingenToolStripMenuItem.Text = "Aanpassingen";
+            // 
+            // artikelsAanpassenToolStripMenuItem
+            // 
+            this.artikelsAanpassenToolStripMenuItem.Name = "artikelsAanpassenToolStripMenuItem";
+            this.artikelsAanpassenToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.artikelsAanpassenToolStripMenuItem.Text = "Artikels aanpassen";
+            this.artikelsAanpassenToolStripMenuItem.Click += new System.EventHandler(this.artikelsAanpassenToolStripMenuItem_Click);
+            // 
+            // applicatieInstellingenToolStripMenuItem
+            // 
+            this.applicatieInstellingenToolStripMenuItem.Name = "applicatieInstellingenToolStripMenuItem";
+            this.applicatieInstellingenToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.applicatieInstellingenToolStripMenuItem.Text = "Applicatie instellingen";
+            this.applicatieInstellingenToolStripMenuItem.Click += new System.EventHandler(this.applicatieInstellingenToolStripMenuItem_Click);
             // 
             // lblTitel
             // 
             this.lblTitel.AutoSize = true;
             this.lblTitel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitel.Location = new System.Drawing.Point(12, 42);
+            this.lblTitel.Location = new System.Drawing.Point(15, 24);
             this.lblTitel.Name = "lblTitel";
             this.lblTitel.Size = new System.Drawing.Size(232, 37);
             this.lblTitel.TabIndex = 1;
@@ -108,9 +130,9 @@
             // 
             this.groupBox1.Controls.Add(this.datagrdEten);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(19, 82);
+            this.groupBox1.Location = new System.Drawing.Point(12, 64);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(391, 466);
+            this.groupBox1.Size = new System.Drawing.Size(391, 655);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Eten";
@@ -127,7 +149,7 @@
             this.PpS});
             this.datagrdEten.Location = new System.Drawing.Point(6, 34);
             this.datagrdEten.Name = "datagrdEten";
-            this.datagrdEten.Size = new System.Drawing.Size(377, 425);
+            this.datagrdEten.Size = new System.Drawing.Size(377, 614);
             this.datagrdEten.TabIndex = 15;
             this.datagrdEten.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagrdEten_CellClick);
             this.datagrdEten.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagrdEten_CellValueChanged);
@@ -155,9 +177,9 @@
             this.groupBox4.Controls.Add(this.txtBoxTotaalPrijs);
             this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(1243, 82);
+            this.groupBox4.Location = new System.Drawing.Point(1243, 124);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(394, 506);
+            this.groupBox4.Size = new System.Drawing.Size(394, 570);
             this.groupBox4.TabIndex = 6;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Factuur";
@@ -172,7 +194,7 @@
             this.PrijsTot});
             this.datagrdFactuur.Location = new System.Drawing.Point(6, 34);
             this.datagrdFactuur.Name = "datagrdFactuur";
-            this.datagrdFactuur.Size = new System.Drawing.Size(382, 425);
+            this.datagrdFactuur.Size = new System.Drawing.Size(382, 529);
             this.datagrdFactuur.TabIndex = 0;
             this.datagrdFactuur.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagrdFactuur_CellValueChanged);
             // 
@@ -221,7 +243,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(17, 608);
+            this.label1.Location = new System.Drawing.Point(17, 731);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(120, 29);
             this.label1.TabIndex = 7;
@@ -231,7 +253,7 @@
             // 
             this.numBetaald.DecimalPlaces = 2;
             this.numBetaald.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numBetaald.Location = new System.Drawing.Point(143, 606);
+            this.numBetaald.Location = new System.Drawing.Point(143, 725);
             this.numBetaald.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -246,7 +268,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(277, 608);
+            this.label2.Location = new System.Drawing.Point(277, 731);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(103, 29);
             this.label2.TabIndex = 9;
@@ -255,7 +277,7 @@
             // txtBoxTerug
             // 
             this.txtBoxTerug.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxTerug.Location = new System.Drawing.Point(386, 605);
+            this.txtBoxTerug.Location = new System.Drawing.Point(386, 725);
             this.txtBoxTerug.Name = "txtBoxTerug";
             this.txtBoxTerug.ReadOnly = true;
             this.txtBoxTerug.Size = new System.Drawing.Size(120, 35);
@@ -264,7 +286,7 @@
             // btnNieuw
             // 
             this.btnNieuw.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNieuw.Location = new System.Drawing.Point(1517, 599);
+            this.btnNieuw.Location = new System.Drawing.Point(1517, 713);
             this.btnNieuw.Name = "btnNieuw";
             this.btnNieuw.Size = new System.Drawing.Size(120, 47);
             this.btnNieuw.TabIndex = 13;
@@ -276,9 +298,9 @@
             // 
             this.groupBox2.Controls.Add(this.datagrdDrank);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(428, 82);
+            this.groupBox2.Location = new System.Drawing.Point(422, 64);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(391, 466);
+            this.groupBox2.Size = new System.Drawing.Size(391, 655);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Drank";
@@ -295,7 +317,7 @@
             this.dataGridViewTextBoxColumn3});
             this.datagrdDrank.Location = new System.Drawing.Point(8, 34);
             this.datagrdDrank.Name = "datagrdDrank";
-            this.datagrdDrank.Size = new System.Drawing.Size(377, 425);
+            this.datagrdDrank.Size = new System.Drawing.Size(377, 614);
             this.datagrdDrank.TabIndex = 15;
             this.datagrdDrank.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagrdDrank_CellValueChanged);
             // 
@@ -320,9 +342,9 @@
             // 
             this.groupBox3.Controls.Add(this.datagrdAndere);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(837, 82);
+            this.groupBox3.Location = new System.Drawing.Point(832, 64);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(391, 466);
+            this.groupBox3.Size = new System.Drawing.Size(391, 655);
             this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Andere";
@@ -339,7 +361,7 @@
             this.dataGridViewTextBoxColumn6});
             this.datagrdAndere.Location = new System.Drawing.Point(6, 34);
             this.datagrdAndere.Name = "datagrdAndere";
-            this.datagrdAndere.Size = new System.Drawing.Size(377, 425);
+            this.datagrdAndere.Size = new System.Drawing.Size(377, 614);
             this.datagrdAndere.TabIndex = 15;
             this.datagrdAndere.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagrdAndere_CellValueChanged);
             // 
@@ -360,11 +382,23 @@
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
+            // pictureLogo
+            // 
+            this.pictureLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureLogo.Image")));
+            this.pictureLogo.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureLogo.InitialImage")));
+            this.pictureLogo.Location = new System.Drawing.Point(1389, 27);
+            this.pictureLogo.Name = "pictureLogo";
+            this.pictureLogo.Size = new System.Drawing.Size(260, 91);
+            this.pictureLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureLogo.TabIndex = 17;
+            this.pictureLogo.TabStop = false;
+            // 
             // Factuur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1649, 654);
+            this.ClientSize = new System.Drawing.Size(1649, 772);
+            this.Controls.Add(this.pictureLogo);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnNieuw);
@@ -376,8 +410,10 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblTitel);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Factuur";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Factuur maken";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Factuur_FormClosing);
             this.Load += new System.EventHandler(this.Factuur_Load);
@@ -393,6 +429,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.datagrdDrank)).EndInit();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.datagrdAndere)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -431,5 +468,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ArtikelAndere;
         private System.Windows.Forms.DataGridViewTextBoxColumn AantalAndere;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.ToolStripMenuItem applicatieInstellingenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem artikelsAanpassenToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureLogo;
     }
 }

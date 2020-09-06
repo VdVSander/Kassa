@@ -34,6 +34,22 @@ namespace PAX_Eetdagen
             ShowReadOnly = true
         };
 
+        OpenFileDialog openFileDialog2 = new OpenFileDialog
+        {
+            Title = "Selecteer TXT bestand",
+
+            CheckFileExists = true,
+            CheckPathExists = true,
+
+            DefaultExt = "txt",
+            Filter = "txt bestanden (*.txt)|*.txt",
+            FilterIndex = 2,
+            RestoreDirectory = true,
+
+            ReadOnlyChecked = true,
+            ShowReadOnly = true
+        };
+
         //Wanneer er op 'toevoegen' knop wordt gedrukt
         private void btnAdd_Click(object sender, EventArgs e)
 
@@ -114,7 +130,10 @@ namespace PAX_Eetdagen
                         catch (IOException ex)
                         {
                             fileError = true;
-                            MessageBox.Show("It wasn't possible to write the data to the disk." + ex.Message);
+                            string msg = "Het was niet mogelijk om de data weg te schrijven." + ex.Message;
+                            string title = "Error";
+                            MessageBoxButtons buttons = MessageBoxButtons.OK;
+                            MessageBox.Show(msg,title,buttons,MessageBoxIcon.Error,MessageBoxDefaultButton.Button1);
                         }
                     }
                     if (!fileError)
@@ -129,7 +148,10 @@ namespace PAX_Eetdagen
                                 sw.WriteLine(Convert.ToSingle(row.Cells[2].Value));
                             }
                             sw.Close();
-                            DialogResult result = MessageBox.Show("Data opgeslagen", "Info");
+                            string msg = "Data opgeslagen";
+                            string title = "Succes";
+                            MessageBoxButtons buttons = MessageBoxButtons.OK;                           
+                            DialogResult result = MessageBox.Show(msg, title, buttons, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                             SaveArticleList();
                             if (result == DialogResult.OK)
                             {
@@ -141,14 +163,20 @@ namespace PAX_Eetdagen
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("Error :" + ex.Message);
+                            string msg = "Error :" + ex.Message;
+                            string title = "Error";
+                            MessageBoxButtons buttons = MessageBoxButtons.OK;
+                            MessageBox.Show(msg, title, buttons, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                         }
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Geen data om te exporteren!", "Info");
+                string msg = "Geen data om te exporteren!";
+                string title = "Error";
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                MessageBox.Show(msg, title, buttons, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
 
@@ -211,8 +239,16 @@ namespace PAX_Eetdagen
                 }
                 if (match)
                 {
-                    Global.Artikels.Remove(destroy);
-                    update_table();
+                    string message = "Bent u zeker dat u " + art + " wilt verwijderen?";
+                    string title = "Artikel verwijderen";
+                    MessageBoxButtons knoppen = MessageBoxButtons.YesNo;
+                    DialogResult result = MessageBox.Show(message, title, knoppen, MessageBoxIcon.Exclamation,MessageBoxDefaultButton.Button2);
+                    if (result == DialogResult.Yes)
+                    {
+                        Global.Artikels.Remove(destroy);
+                        update_table();
+                        cmbBoxArtDelete.Text = "";
+                    }
                 }
             }
         }
@@ -234,7 +270,7 @@ namespace PAX_Eetdagen
             {
                 Global.path = openFileDialog1.FileName;
                 txtBoxCSVPath.Text = Global.path;
-                BindCSV(Global.path);
+                BindTXT(Global.path);
                 SaveArticleList();
                 UpdateComboBoxes();
                 btnReady.Visible = true;
@@ -242,7 +278,7 @@ namespace PAX_Eetdagen
 
        }
 
-        private void BindCSV(string filePath)
+        private void BindTXT(string filePath)
         {
             if(datagrdArt.Rows.Count > 0)
             {
@@ -275,7 +311,10 @@ namespace PAX_Eetdagen
             }
             else
             {
-                MessageBox.Show("Error, no data in file.", "Error");
+                string msg = "Error, geen data in bestand.";
+                string title = "Error";
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                MessageBox.Show(msg, title, buttons, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
             Global.path = filePath;
         }
@@ -306,9 +345,40 @@ namespace PAX_Eetdagen
 
         private void datagrdArt_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            cmbBoxArtChange.Text = datagrdArt.Rows[e.RowIndex].Cells[0].Value.ToString();
             txtBoxArtNameChange.Text = datagrdArt.Rows[e.RowIndex].Cells[0].Value.ToString();
             cmbBoxArtCatChange.Text = datagrdArt.Rows[e.RowIndex].Cells[1].Value.ToString();
             numArtPriceChange.Value = Convert.ToDecimal(datagrdArt.Rows[e.RowIndex].Cells[2].Value);
+        }
+
+        private void Welcome_Load(object sender, EventArgs e)
+        {
+            if (Global.logo_path != "")
+            {
+                pictureLogo.ImageLocation = Global.logo_path;
+            }
+        }
+
+        private void btnOpenConfig_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog2.ShowDialog() == DialogResult.OK)
+            {
+                Global.config_path = openFileDialog2.FileName;
+                txtBoxconfigPath.Text = Global.config_path;
+                string[] lines = System.IO.File.ReadAllLines(Global.config_path);
+                if (lines.Length > 0)
+                {
+                    Global.logo_path = lines[0];
+                    pictureLogo.ImageLocation = Global.logo_path;
+                }
+                else
+                {
+                    string msg = "Error, geen data in bestand.";
+                    string title = "Error";
+                    MessageBoxButtons buttons = MessageBoxButtons.OK;
+                    MessageBox.Show(msg, title, buttons, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                }
+            }
         }
     }
 }

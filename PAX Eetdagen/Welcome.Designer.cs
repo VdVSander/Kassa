@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Welcome));
             this.lblConfig = new System.Windows.Forms.Label();
             this.grpBoxAddItem = new System.Windows.Forms.GroupBox();
             this.cmbBoxArtCat = new System.Windows.Forms.ComboBox();
@@ -57,9 +58,12 @@
             this.ArtPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnReady = new System.Windows.Forms.Button();
             this.txtBoxCSVPath = new System.Windows.Forms.TextBox();
-            this.txtBoxOpen = new System.Windows.Forms.RichTextBox();
-            this.btnOpenCSV = new System.Windows.Forms.Button();
+            this.btnOpenTXT = new System.Windows.Forms.Button();
             this.pictureLogo = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtBoxconfigPath = new System.Windows.Forms.TextBox();
+            this.btnOpenConfig = new System.Windows.Forms.Button();
             this.grpBoxAddItem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numArtPrice)).BeginInit();
             this.grpBoxEdditItem.SuspendLayout();
@@ -341,10 +345,10 @@
             this.ArtName,
             this.ArtCat,
             this.ArtPrice});
-            this.datagrdArt.Location = new System.Drawing.Point(417, 163);
+            this.datagrdArt.Location = new System.Drawing.Point(417, 177);
             this.datagrdArt.Name = "datagrdArt";
             this.datagrdArt.ReadOnly = true;
-            this.datagrdArt.Size = new System.Drawing.Size(357, 501);
+            this.datagrdArt.Size = new System.Drawing.Size(357, 566);
             this.datagrdArt.TabIndex = 5;
             this.datagrdArt.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagrdArt_CellClick);
             // 
@@ -381,39 +385,28 @@
             // txtBoxCSVPath
             // 
             this.txtBoxCSVPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxCSVPath.Location = new System.Drawing.Point(546, 49);
+            this.txtBoxCSVPath.Location = new System.Drawing.Point(517, 49);
             this.txtBoxCSVPath.Name = "txtBoxCSVPath";
             this.txtBoxCSVPath.ReadOnly = true;
-            this.txtBoxCSVPath.Size = new System.Drawing.Size(228, 24);
+            this.txtBoxCSVPath.Size = new System.Drawing.Size(257, 24);
             this.txtBoxCSVPath.TabIndex = 12;
             this.txtBoxCSVPath.Text = "TXT bestand";
             // 
-            // txtBoxOpen
+            // btnOpenTXT
             // 
-            this.txtBoxOpen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxOpen.Location = new System.Drawing.Point(417, 49);
-            this.txtBoxOpen.Name = "txtBoxOpen";
-            this.txtBoxOpen.ReadOnly = true;
-            this.txtBoxOpen.Size = new System.Drawing.Size(123, 105);
-            this.txtBoxOpen.TabIndex = 11;
-            this.txtBoxOpen.Text = "Indien je deze stap al reeds hebt uitgevoerd, gelieve het TXT bestand te importer" +
-    "en.\n\n";
-            // 
-            // btnOpenCSV
-            // 
-            this.btnOpenCSV.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpenCSV.Location = new System.Drawing.Point(546, 118);
-            this.btnOpenCSV.Name = "btnOpenCSV";
-            this.btnOpenCSV.Size = new System.Drawing.Size(113, 36);
-            this.btnOpenCSV.TabIndex = 10;
-            this.btnOpenCSV.Text = "Importeer";
-            this.btnOpenCSV.UseVisualStyleBackColor = true;
-            this.btnOpenCSV.Click += new System.EventHandler(this.btnOpenCSV_Click);
+            this.btnOpenTXT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpenTXT.Location = new System.Drawing.Point(661, 79);
+            this.btnOpenTXT.Name = "btnOpenTXT";
+            this.btnOpenTXT.Size = new System.Drawing.Size(113, 28);
+            this.btnOpenTXT.TabIndex = 10;
+            this.btnOpenTXT.Text = "Importeer";
+            this.btnOpenTXT.UseVisualStyleBackColor = true;
+            this.btnOpenTXT.Click += new System.EventHandler(this.btnOpenCSV_Click);
             // 
             // pictureLogo
             // 
-            this.pictureLogo.Image = global::PAX_Eetdagen.Properties.Resources.bkpam2322620_pax_logo_rgb;
-            this.pictureLogo.InitialImage = global::PAX_Eetdagen.Properties.Resources.bkpam2322620_pax_logo_rgb;
+            this.pictureLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureLogo.Image")));
+            this.pictureLogo.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureLogo.InitialImage")));
             this.pictureLogo.Location = new System.Drawing.Point(19, 49);
             this.pictureLogo.Name = "pictureLogo";
             this.pictureLogo.Size = new System.Drawing.Size(321, 108);
@@ -421,14 +414,58 @@
             this.pictureLogo.TabIndex = 2;
             this.pictureLogo.TabStop = false;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(385, 52);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(126, 18);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Importeer artikels:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(385, 116);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(155, 18);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Importeer configuratie:";
+            // 
+            // txtBoxconfigPath
+            // 
+            this.txtBoxconfigPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxconfigPath.Location = new System.Drawing.Point(546, 113);
+            this.txtBoxconfigPath.Name = "txtBoxconfigPath";
+            this.txtBoxconfigPath.ReadOnly = true;
+            this.txtBoxconfigPath.Size = new System.Drawing.Size(228, 24);
+            this.txtBoxconfigPath.TabIndex = 15;
+            this.txtBoxconfigPath.Text = "TXT bestand";
+            // 
+            // btnOpenConfig
+            // 
+            this.btnOpenConfig.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpenConfig.Location = new System.Drawing.Point(661, 143);
+            this.btnOpenConfig.Name = "btnOpenConfig";
+            this.btnOpenConfig.Size = new System.Drawing.Size(113, 28);
+            this.btnOpenConfig.TabIndex = 14;
+            this.btnOpenConfig.Text = "Importeer";
+            this.btnOpenConfig.UseVisualStyleBackColor = true;
+            this.btnOpenConfig.Click += new System.EventHandler(this.btnOpenConfig_Click);
+            // 
             // Welcome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 830);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtBoxconfigPath);
+            this.Controls.Add(this.btnOpenConfig);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.txtBoxCSVPath);
-            this.Controls.Add(this.txtBoxOpen);
-            this.Controls.Add(this.btnOpenCSV);
+            this.Controls.Add(this.btnOpenTXT);
             this.Controls.Add(this.btnReady);
             this.Controls.Add(this.datagrdArt);
             this.Controls.Add(this.grpBoxItemDelete);
@@ -436,9 +473,12 @@
             this.Controls.Add(this.pictureLogo);
             this.Controls.Add(this.grpBoxAddItem);
             this.Controls.Add(this.lblConfig);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Welcome";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Configuratie";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Welcome_FormClosing);
+            this.Load += new System.EventHandler(this.Welcome_Load);
             this.grpBoxAddItem.ResumeLayout(false);
             this.grpBoxAddItem.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numArtPrice)).EndInit();
@@ -486,7 +526,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ArtPrice;
         private System.Windows.Forms.Button btnReady;
         private System.Windows.Forms.TextBox txtBoxCSVPath;
-        private System.Windows.Forms.RichTextBox txtBoxOpen;
-        private System.Windows.Forms.Button btnOpenCSV;
+        private System.Windows.Forms.Button btnOpenTXT;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtBoxconfigPath;
+        private System.Windows.Forms.Button btnOpenConfig;
     }
 }

@@ -23,5 +23,7 @@ namespace PAX_Eetdagen
     {
         public static string path = "";
         public static List<Article> Artikels = new List<Article>();
+        public static string logo_path = "";
+        public static string config_path = "";
     }
 }

@@ -19,6 +19,10 @@ namespace PAX_Eetdagen
 
         private void Factuur_Load(object sender, EventArgs e)
         {
+            if(Global.logo_path != "")
+            {
+                pictureLogo.ImageLocation = Global.logo_path;
+            }
             foreach(var artikel in Global.Artikels)
             {
                 if(artikel.categorie == "Eten")
@@ -165,7 +169,6 @@ namespace PAX_Eetdagen
         private void btnNieuw_Click(object sender, EventArgs e)
         {
             datagrdFactuur.DataSource = null;
-            //datagrdFactuur.DataBind();
             foreach (DataGridViewRow row in datagrdEten.Rows)
             {
                 row.Cells[1].Value = 0;
@@ -211,6 +214,20 @@ namespace PAX_Eetdagen
             }
             txtBoxTotaalPrijs.Text = Convert.ToString(totaal);
 
+        }
+
+        private void applicatieInstellingenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Applicatie_instellingen frm4 = new Applicatie_instellingen();
+            frm4.Show();
+            this.Visible = false;
+        }
+
+        private void artikelsAanpassenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Aanpassingen frm3 = new Aanpassingen();
+            frm3.Show();
+            this.Visible = false;
         }
     }
 }

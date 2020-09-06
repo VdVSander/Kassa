@@ -52,6 +52,12 @@
     <Compile Include="Aanpassingen.Designer.cs">
       <DependentUpon>Aanpassingen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Applicatie_instellingen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applicatie_instellingen.Designer.cs">
+      <DependentUpon>Applicatie_instellingen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Factuur.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,9 @@
     </Compile>
     <EmbeddedResource Include="Aanpassingen.resx">
       <DependentUpon>Aanpassingen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applicatie_instellingen.resx">
+      <DependentUpon>Applicatie_instellingen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Factuur.resx">
       <DependentUpon>Factuur.cs</DependentUpon>

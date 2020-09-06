@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Aanpassingen));
             this.lblConfig = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.factuurMakenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aanpassingenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.artikelsAanpassenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.applicatieInstellingenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grpBoxAddItem = new System.Windows.Forms.GroupBox();
             this.cmbBoxArtCat = new System.Windows.Forms.ComboBox();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -77,9 +80,9 @@
             this.lblConfig.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConfig.Location = new System.Drawing.Point(5, 34);
             this.lblConfig.Name = "lblConfig";
-            this.lblConfig.Size = new System.Drawing.Size(190, 37);
+            this.lblConfig.Size = new System.Drawing.Size(288, 37);
             this.lblConfig.TabIndex = 3;
-            this.lblConfig.Text = "Configuratie";
+            this.lblConfig.Text = "Artikels aanpassen";
             // 
             // menuStrip1
             // 
@@ -97,12 +100,29 @@
             this.factuurMakenToolStripMenuItem.Name = "factuurMakenToolStripMenuItem";
             this.factuurMakenToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
             this.factuurMakenToolStripMenuItem.Text = "Factuur maken";
+            this.factuurMakenToolStripMenuItem.Click += new System.EventHandler(this.factuurMakenToolStripMenuItem_Click);
             // 
             // aanpassingenToolStripMenuItem
             // 
+            this.aanpassingenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.artikelsAanpassenToolStripMenuItem,
+            this.applicatieInstellingenToolStripMenuItem});
             this.aanpassingenToolStripMenuItem.Name = "aanpassingenToolStripMenuItem";
             this.aanpassingenToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
             this.aanpassingenToolStripMenuItem.Text = "Aanpassingen";
+            // 
+            // artikelsAanpassenToolStripMenuItem
+            // 
+            this.artikelsAanpassenToolStripMenuItem.Name = "artikelsAanpassenToolStripMenuItem";
+            this.artikelsAanpassenToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.artikelsAanpassenToolStripMenuItem.Text = "Artikels aanpassen";
+            // 
+            // applicatieInstellingenToolStripMenuItem
+            // 
+            this.applicatieInstellingenToolStripMenuItem.Name = "applicatieInstellingenToolStripMenuItem";
+            this.applicatieInstellingenToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.applicatieInstellingenToolStripMenuItem.Text = "Applicatie instellingen";
+            this.applicatieInstellingenToolStripMenuItem.Click += new System.EventHandler(this.applicatieInstellingenToolStripMenuItem_Click);
             // 
             // grpBoxAddItem
             // 
@@ -143,6 +163,7 @@
             this.btnAdd.TabIndex = 3;
             this.btnAdd.Text = "Toevoegen";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // numArtPrice
             // 
@@ -241,6 +262,7 @@
             this.cmbBoxArtChange.Name = "cmbBoxArtChange";
             this.cmbBoxArtChange.Size = new System.Drawing.Size(244, 32);
             this.cmbBoxArtChange.TabIndex = 9;
+            this.cmbBoxArtChange.SelectedIndexChanged += new System.EventHandler(this.cmbBoxArtChange_SelectedIndexChanged);
             // 
             // cmbBoxArtCatChange
             // 
@@ -264,6 +286,7 @@
             this.btnChange.TabIndex = 3;
             this.btnChange.Text = "Wijzigen";
             this.btnChange.UseVisualStyleBackColor = true;
+            this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
             // 
             // numArtPriceChange
             // 
@@ -331,6 +354,7 @@
             this.btnDelete.TabIndex = 5;
             this.btnDelete.Text = "Verwijderen";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // cmbBoxArtDelete
             // 
@@ -380,6 +404,7 @@
             this.btnOpenCSV.TabIndex = 15;
             this.btnOpenCSV.Text = "Importeer";
             this.btnOpenCSV.UseVisualStyleBackColor = true;
+            this.btnOpenCSV.Click += new System.EventHandler(this.btnOpenCSV_Click);
             // 
             // datagrdArt
             // 
@@ -395,7 +420,7 @@
             this.datagrdArt.Location = new System.Drawing.Point(372, 152);
             this.datagrdArt.Name = "datagrdArt";
             this.datagrdArt.ReadOnly = true;
-            this.datagrdArt.Size = new System.Drawing.Size(357, 501);
+            this.datagrdArt.Size = new System.Drawing.Size(357, 485);
             this.datagrdArt.TabIndex = 16;
             // 
             // ArtName
@@ -426,6 +451,7 @@
             this.btnSave.Text = "Opslaan";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Visible = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // Aanpassingen
             // 
@@ -442,8 +468,11 @@
             this.Controls.Add(this.grpBoxAddItem);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.lblConfig);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Aanpassingen";
-            this.Text = "Aanpassingen";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Artikels aanpassen";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Aanpassingen_FormClosing);
             this.Load += new System.EventHandler(this.Aanpassingen_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -496,5 +525,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ArtCat;
         private System.Windows.Forms.DataGridViewTextBoxColumn ArtPrice;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.ToolStripMenuItem applicatieInstellingenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem artikelsAanpassenToolStripMenuItem;
     }
 }
